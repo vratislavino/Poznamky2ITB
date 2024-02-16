@@ -17,6 +17,14 @@ namespace Poznamky2ITB
             InitializeComponent();
         }
 
+        private void ProjectManagerForm_Load(object sender, EventArgs e)
+        {
+            for(int i = 0; i < DataManager.Instance.ProjectList.Count; i++)
+            {
+                CreateProjectView(DataManager.Instance.ProjectList[i]);
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             var res = colorDialog1.ShowDialog();
@@ -37,7 +45,11 @@ namespace Poznamky2ITB
                 Name = textBox1.Text,
                 Id = 0 // TODO: change to real id
             };
+            CreateProjectView(newProject);
+        }
 
+        private void CreateProjectView(Project newProject)
+        {
             ProjektView projectView = new ProjektView();
             projectView.Project = newProject;
             flowLayoutPanel1.Controls.Add(projectView);

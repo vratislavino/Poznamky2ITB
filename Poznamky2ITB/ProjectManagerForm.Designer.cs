@@ -138,6 +138,7 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "ProjectManagerForm";
             Text = "Správce projektů";
+            Load += ProjectManagerForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

@@ -20,6 +20,11 @@ namespace Poznamky2ITB
         private string pathToProjects = "projects.json";
         private string pathToPoznamkas = "poznamkas.json";
 
+        public IReadOnlyList<Project> ProjectList
+        {
+            get { return Projects; } 
+        }
+
         private List<Project> Projects = new List<Project>();
 
         private List<Poznamka> Poznamkas = new List<Poznamka>();

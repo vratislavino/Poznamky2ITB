@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             menuStrip1 = new MenuStrip();
+            projektManagerToolStripMenuItem = new ToolStripMenuItem();
             splitContainer1 = new SplitContainer();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
-            poznamkaView1 = new PoznamkaView();
-            comboBox1 = new ComboBox();
             label1 = new Label();
-            projektManagerToolStripMenuItem = new ToolStripMenuItem();
+            comboBox1 = new ComboBox();
+            poznamkaView1 = new PoznamkaView();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -53,6 +53,13 @@
             menuStrip1.Size = new Size(1130, 33);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
+            // 
+            // projektManagerToolStripMenuItem
+            // 
+            projektManagerToolStripMenuItem.Name = "projektManagerToolStripMenuItem";
+            projektManagerToolStripMenuItem.Size = new Size(158, 29);
+            projektManagerToolStripMenuItem.Text = "Projekt Manager";
+            projektManagerToolStripMenuItem.Click += projektManagerToolStripMenuItem_Click;
             // 
             // splitContainer1
             // 
@@ -88,22 +95,6 @@
             panel1.Size = new Size(370, 128);
             panel1.TabIndex = 0;
             // 
-            // poznamkaView1
-            // 
-            poznamkaView1.Dock = DockStyle.Fill;
-            poznamkaView1.Location = new Point(0, 0);
-            poznamkaView1.Name = "poznamkaView1";
-            poznamkaView1.Size = new Size(750, 773);
-            poznamkaView1.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(151, 45);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(205, 33);
-            comboBox1.TabIndex = 0;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -113,12 +104,21 @@
             label1.TabIndex = 1;
             label1.Text = "Vyber projekt";
             // 
-            // projektManagerToolStripMenuItem
+            // comboBox1
             // 
-            projektManagerToolStripMenuItem.Name = "projektManagerToolStripMenuItem";
-            projektManagerToolStripMenuItem.Size = new Size(158, 29);
-            projektManagerToolStripMenuItem.Text = "Projekt Manager";
-            projektManagerToolStripMenuItem.Click += projektManagerToolStripMenuItem_Click;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(151, 45);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(205, 33);
+            comboBox1.TabIndex = 0;
+            // 
+            // poznamkaView1
+            // 
+            poznamkaView1.Dock = DockStyle.Fill;
+            poznamkaView1.Location = new Point(0, 0);
+            poznamkaView1.Name = "poznamkaView1";
+            poznamkaView1.Size = new Size(750, 773);
+            poznamkaView1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -130,6 +130,7 @@
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
             Text = "MainForm";
+            Load += MainForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             splitContainer1.Panel1.ResumeLayout(false);
