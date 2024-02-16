@@ -20,16 +20,27 @@ namespace Poznamky2ITB
         private void MainForm_Load(object sender, EventArgs e)
         {
             DataManager.Instance.LoadProjects();
+            FillFilter();
+        }
+
+        private void FillFilter()
+        {
+            foreach (var project in DataManager.Instance.ProjectList)
+            {
+                comboBox1.Items.Add(project);
+            }
         }
 
         private void projektManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProjectManagerForm projektForm = new ProjectManagerForm();
-
             projektForm.ShowDialog();
-
-            MessageBox.Show("ASASD");
         }
 
+        private void přidatPoznámkuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddPoznamkaForm addPoznamkaForm = new AddPoznamkaForm();
+            addPoznamkaForm.ShowDialog();
+        }
     }
 }

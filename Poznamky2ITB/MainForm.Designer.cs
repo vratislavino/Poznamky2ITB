@@ -36,6 +36,7 @@
             label1 = new Label();
             comboBox1 = new ComboBox();
             poznamkaView1 = new PoznamkaView();
+            přidatPoznámkuToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -47,7 +48,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { projektManagerToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { projektManagerToolStripMenuItem, přidatPoznámkuToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1130, 33);
@@ -120,6 +121,13 @@
             poznamkaView1.Size = new Size(750, 773);
             poznamkaView1.TabIndex = 0;
             // 
+            // přidatPoznámkuToolStripMenuItem
+            // 
+            přidatPoznámkuToolStripMenuItem.Name = "přidatPoznámkuToolStripMenuItem";
+            přidatPoznámkuToolStripMenuItem.Size = new Size(163, 29);
+            přidatPoznámkuToolStripMenuItem.Text = "Přidat poznámku";
+            přidatPoznámkuToolStripMenuItem.Click += přidatPoznámkuToolStripMenuItem_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -153,5 +161,6 @@
         private Label label1;
         private ComboBox comboBox1;
         private ToolStripMenuItem projektManagerToolStripMenuItem;
+        private ToolStripMenuItem přidatPoznámkuToolStripMenuItem;
     }
 }

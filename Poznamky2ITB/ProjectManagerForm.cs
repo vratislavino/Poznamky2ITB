@@ -45,6 +45,8 @@ namespace Poznamky2ITB
                 Name = textBox1.Text,
                 Id = 0 // TODO: change to real id
             };
+
+            DataManager.Instance.AddProject(newProject);
             CreateProjectView(newProject);
         }
 

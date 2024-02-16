@@ -19,7 +19,7 @@ namespace Poznamky2ITB
             set
             {
                 project = value;
-                DataManager.Instance.AddProject(project);
+                
                 pictureBox1.BackColor = project.Color;
                 label1.Text = project.Name;
             }

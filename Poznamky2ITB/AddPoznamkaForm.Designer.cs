@@ -120,6 +120,7 @@
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(585, 154);
             listBox1.TabIndex = 8;
+            listBox1.MouseDoubleClick += listBox1_MouseDoubleClick;
             // 
             // textBox2
             // 
@@ -154,6 +155,7 @@
             button1.TabIndex = 12;
             button1.Text = "Přidat";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -163,6 +165,7 @@
             button2.TabIndex = 13;
             button2.Text = "Zrušit";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -172,6 +175,7 @@
             button3.TabIndex = 14;
             button3.Text = "Uložit";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // AddPoznamkaForm
             // 
@@ -197,6 +201,7 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "AddPoznamkaForm";
             Text = "Přidání poznámky";
+            Load += AddPoznamkaForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -13,5 +13,10 @@ namespace Poznamky2ITB
         public string Name { get; set; }
 
         public Color Color { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
