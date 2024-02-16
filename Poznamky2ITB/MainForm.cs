@@ -16,5 +16,14 @@ namespace Poznamky2ITB
         {
             InitializeComponent();
         }
+
+        private void projektManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProjectManagerForm projektForm = new ProjectManagerForm();
+            
+            projektForm.ShowDialog();
+
+            MessageBox.Show("ASASD");
+        }
     }
 }

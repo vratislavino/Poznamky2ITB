@@ -31,18 +31,19 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             textBox1 = new TextBox();
             panel1 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            button1 = new Button();
-            colorDialog1 = new ColorDialog();
             button2 = new Button();
+            button1 = new Button();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            colorDialog1 = new ColorDialog();
             button3 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Location = new Point(12, 12);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(618, 532);
@@ -68,24 +69,24 @@
             panel1.Size = new Size(618, 198);
             panel1.TabIndex = 1;
             // 
-            // label1
+            // button2
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(15, 13);
-            label1.Name = "label1";
-            label1.Size = new Size(214, 38);
-            label1.TabIndex = 2;
-            label1.Text = "Přidání projektu";
+            button2.Location = new Point(484, 133);
+            button2.Name = "button2";
+            button2.Size = new Size(112, 34);
+            button2.TabIndex = 6;
+            button2.Text = "Přidat";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
-            // label2
+            // button1
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(15, 51);
-            label2.Name = "label2";
-            label2.Size = new Size(60, 25);
-            label2.TabIndex = 3;
-            label2.Text = "Název";
+            button1.Location = new Point(289, 79);
+            button1.Name = "button1";
+            button1.Size = new Size(186, 34);
+            button1.TabIndex = 5;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label3
             // 
@@ -96,22 +97,24 @@
             label3.TabIndex = 4;
             label3.Text = "Barva";
             // 
-            // button1
+            // label2
             // 
-            button1.Location = new Point(289, 79);
-            button1.Name = "button1";
-            button1.Size = new Size(186, 34);
-            button1.TabIndex = 5;
-            button1.UseVisualStyleBackColor = true;
+            label2.AutoSize = true;
+            label2.Location = new Point(15, 51);
+            label2.Name = "label2";
+            label2.Size = new Size(60, 25);
+            label2.TabIndex = 3;
+            label2.Text = "Název";
             // 
-            // button2
+            // label1
             // 
-            button2.Location = new Point(484, 133);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 34);
-            button2.TabIndex = 6;
-            button2.Text = "Přidat";
-            button2.UseVisualStyleBackColor = true;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(15, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(214, 38);
+            label1.TabIndex = 2;
+            label1.Text = "Přidání projektu";
             // 
             // button3
             // 
@@ -119,8 +122,9 @@
             button3.Name = "button3";
             button3.Size = new Size(187, 47);
             button3.TabIndex = 7;
-            button3.Text = "Uložit";
+            button3.Text = "Zavřít";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // ProjectManagerForm
             // 

@@ -12,9 +12,30 @@ namespace Poznamky2ITB
 {
     public partial class ProjektView : UserControl
     {
+        private Project project;
+        public Project Project
+        {
+            get { return project; }
+            set
+            {
+                project = value;
+                DataManager.Instance.AddProject(project);
+                pictureBox1.BackColor = project.Color;
+                label1.Text = project.Name;
+            }
+        }
+
+        public event Action<ProjektView> DeleteRequested;
+
         public ProjektView()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataManager.Instance.RemoveProject(project);    
+            DeleteRequested?.Invoke(this);
         }
     }
 }
