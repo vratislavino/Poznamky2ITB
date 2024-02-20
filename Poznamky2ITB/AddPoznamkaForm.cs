@@ -59,6 +59,10 @@ namespace Poznamky2ITB
             }
 
             newPoznamka.Subtasks = subtasks;
+
+            DataManager.Instance.AddPoznamka(newPoznamka);
+
+            this.Close();
         }
 
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)

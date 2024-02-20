@@ -25,9 +25,26 @@ namespace Poznamky2ITB
             get { return Projects; } 
         }
 
+        public IReadOnlyList<Poznamka> PoznamkaList
+        {
+            get { return Poznamkas; }
+        }
+
         private List<Project> Projects = new List<Project>();
 
         private List<Poznamka> Poznamkas = new List<Poznamka>();
+
+        public int GetRandomProjectId()
+        {
+            Random r = new Random();
+            int id;
+            do
+            {
+                id = r.Next(0, 1000001);
+            } while (Projects.Any(p => p.Id == id));
+
+            return id;
+        }
 
         public void AddProject(Project newProject) {
             Projects.Add(newProject);
@@ -37,6 +54,41 @@ namespace Poznamky2ITB
         public void RemoveProject(Project projectToRemove) {
             Projects.Remove(projectToRemove);
             SaveProjects();
+        }
+
+        public void AddPoznamka(Poznamka poznamka)
+        {
+            Poznamkas.Add(poznamka);
+            SavePoznamkas();
+        }
+
+        public void RemovePoznamka(Poznamka poznamka)
+        {
+            Poznamkas.Remove(poznamka);
+            SavePoznamkas();
+        }
+
+        public void SavePoznamkas()
+        {
+            string dataToSave = JsonConvert.SerializeObject(Poznamkas);
+            File.WriteAllText(pathToPoznamkas, dataToSave);
+        }
+
+        public void LoadPoznamkas()
+        {
+            if(!File.Exists(pathToPoznamkas))
+            {
+                Poznamkas = new List<Poznamka>();
+                return;
+            }
+
+            string data = File.ReadAllText(pathToPoznamkas);
+            Poznamkas = JsonConvert.DeserializeObject<List<Poznamka>>(data);
+            if(Poznamkas == null)
+            {
+                MessageBox.Show("Nepodařilo se načíst poznámky!");
+                Poznamkas = new List<Poznamka>();
+            }
         }
 
         public void SaveProjects()
@@ -55,6 +107,11 @@ namespace Poznamky2ITB
 
             string dataToLoad = File.ReadAllText(pathToProjects);
             Projects = JsonConvert.DeserializeObject<List<Project>>(dataToLoad);
+            if (Projects == null)
+            {
+                MessageBox.Show("Nepodařilo se načíst projekty!");
+                Projects = new List<Project>();
+            }
         }
     }
 }

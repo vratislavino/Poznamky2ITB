@@ -21,10 +21,31 @@ namespace Poznamky2ITB
         {
             DataManager.Instance.LoadProjects();
             FillFilter();
+
+            DataManager.Instance.LoadPoznamkas();
+            CreatePoznamkasViews();
+        }
+
+        private void CreatePoznamkasViews()
+        {
+            flowLayoutPanel1.Controls.Clear();
+
+            foreach (var poznamka in DataManager.Instance.PoznamkaList)
+            {
+                CreatePoznamkaView(poznamka);
+            }
+        }
+
+        private void CreatePoznamkaView(Poznamka poznamka)
+        {
+            PoznamkaSmallView smallPoznamka = new PoznamkaSmallView();
+            smallPoznamka.SetupPoznamka(poznamka);
+            flowLayoutPanel1.Controls.Add(smallPoznamka);
         }
 
         private void FillFilter()
         {
+            comboBox1.Items.Clear();
             foreach (var project in DataManager.Instance.ProjectList)
             {
                 comboBox1.Items.Add(project);
@@ -35,12 +56,39 @@ namespace Poznamky2ITB
         {
             ProjectManagerForm projektForm = new ProjectManagerForm();
             projektForm.ShowDialog();
+
+            FillFilter();
         }
 
         private void přidatPoznámkuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddPoznamkaForm addPoznamkaForm = new AddPoznamkaForm();
             addPoznamkaForm.ShowDialog();
+
+            // tohle se vykoná po zavření AddPoznamkaForm
+            CreatePoznamkasViews();
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var item = comboBox1.SelectedItem;
+            if(item != null)
+            {
+                var selectedProject = item as Project;
+                var id = selectedProject.Id;
+                foreach(var control in flowLayoutPanel1.Controls)
+                {
+                    var smallView = control as PoznamkaSmallView;
+                    if(smallView.Data.ProjectId == id)
+                    {
+                        smallView.Visible = true;
+                    } else
+                    {
+                        smallView.Visible = false;
+                    }
+                }
+            }
         }
     }
 }

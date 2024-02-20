@@ -12,9 +12,21 @@ namespace Poznamky2ITB
 {
     public partial class PoznamkaSmallView : UserControl
     {
+        Poznamka data;
+        public Poznamka Data { get { return data; } }
+
         public PoznamkaSmallView()
         {
             InitializeComponent();
         }
+
+        public void SetupPoznamka(Poznamka poznamka)
+        {
+            data = poznamka;
+            label1.Text = data.Headline;
+            label2.Text = data.DueDate.ToString();
+            pictureBox1.BackColor = DataManager.Instance.ProjectList.First(p => p.Id == data.ProjectId).Color;
+        }
+
     }
 }

@@ -43,7 +43,7 @@ namespace Poznamky2ITB
             {
                 Color = button1.BackColor,
                 Name = textBox1.Text,
-                Id = 0 // TODO: change to real id
+                Id = DataManager.Instance.GetRandomProjectId()
             };
 
             DataManager.Instance.AddProject(newProject);

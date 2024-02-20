@@ -30,13 +30,13 @@
         {
             menuStrip1 = new MenuStrip();
             projektManagerToolStripMenuItem = new ToolStripMenuItem();
+            přidatPoznámkuToolStripMenuItem = new ToolStripMenuItem();
             splitContainer1 = new SplitContainer();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
             label1 = new Label();
             comboBox1 = new ComboBox();
             poznamkaView1 = new PoznamkaView();
-            přidatPoznámkuToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -61,6 +61,13 @@
             projektManagerToolStripMenuItem.Size = new Size(158, 29);
             projektManagerToolStripMenuItem.Text = "Projekt Manager";
             projektManagerToolStripMenuItem.Click += projektManagerToolStripMenuItem_Click;
+            // 
+            // přidatPoznámkuToolStripMenuItem
+            // 
+            přidatPoznámkuToolStripMenuItem.Name = "přidatPoznámkuToolStripMenuItem";
+            přidatPoznámkuToolStripMenuItem.Size = new Size(163, 29);
+            přidatPoznámkuToolStripMenuItem.Text = "Přidat poznámku";
+            přidatPoznámkuToolStripMenuItem.Click += přidatPoznámkuToolStripMenuItem_Click;
             // 
             // splitContainer1
             // 
@@ -112,6 +119,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(205, 33);
             comboBox1.TabIndex = 0;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // poznamkaView1
             // 
@@ -120,13 +128,6 @@
             poznamkaView1.Name = "poznamkaView1";
             poznamkaView1.Size = new Size(750, 773);
             poznamkaView1.TabIndex = 0;
-            // 
-            // přidatPoznámkuToolStripMenuItem
-            // 
-            přidatPoznámkuToolStripMenuItem.Name = "přidatPoznámkuToolStripMenuItem";
-            přidatPoznámkuToolStripMenuItem.Size = new Size(163, 29);
-            přidatPoznámkuToolStripMenuItem.Text = "Přidat poznámku";
-            přidatPoznámkuToolStripMenuItem.Click += přidatPoznámkuToolStripMenuItem_Click;
             // 
             // MainForm
             // 

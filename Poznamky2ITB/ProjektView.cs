@@ -34,6 +34,12 @@ namespace Poznamky2ITB
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(DataManager.Instance.PoznamkaList.Any(p => p.ProjectId == project.Id))
+            {
+                MessageBox.Show("Nelze smazat projekt, který má poznámky!");
+                return;
+            }
+
             DataManager.Instance.RemoveProject(project);    
             DeleteRequested?.Invoke(this);
         }
