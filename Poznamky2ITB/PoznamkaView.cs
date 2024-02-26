@@ -16,5 +16,20 @@ namespace Poznamky2ITB
         {
             InitializeComponent();
         }
+
+        public void SetPoznamka(Poznamka data)
+        {
+            label1.Text = data.Headline;
+            label2.Text = data.Description;
+            label3.Text = $"Termín splnění: {data.DueDate}";
+            foreach(var task in data.Subtasks)
+            {
+                checkedListBox1.Items.Add(task);
+            }
+            var project = DataManager.Instance.ProjectList.First(p => p.Id == data.ProjectId);
+            pictureBox1.BackColor = project.Color;
+            label5.Text = project.Name;
+
+        }
     }
 }

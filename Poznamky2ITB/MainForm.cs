@@ -12,6 +12,8 @@ namespace Poznamky2ITB
 {
     public partial class MainForm : Form
     {
+        PoznamkaSmallView selectedPoznamka = null;
+
         public MainForm()
         {
             InitializeComponent();
@@ -40,7 +42,19 @@ namespace Poznamky2ITB
         {
             PoznamkaSmallView smallPoznamka = new PoznamkaSmallView();
             smallPoznamka.SetupPoznamka(poznamka);
+            smallPoznamka.PoznamkaSelected += OnPoznamkaSelected;
             flowLayoutPanel1.Controls.Add(smallPoznamka);
+        }
+
+        private void OnPoznamkaSelected(PoznamkaSmallView view)
+        {
+            if(selectedPoznamka != null)
+            {
+                selectedPoznamka.BackColor = SystemColors.Control;
+            }
+            selectedPoznamka = view;
+            poznamkaView1.SetPoznamka(view.Data);
+            view.BackColor = Color.LightBlue;
         }
 
         private void FillFilter()

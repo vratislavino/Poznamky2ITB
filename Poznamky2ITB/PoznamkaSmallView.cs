@@ -15,6 +15,8 @@ namespace Poznamky2ITB
         Poznamka data;
         public Poznamka Data { get { return data; } }
 
+        public event Action<PoznamkaSmallView> PoznamkaSelected;
+
         public PoznamkaSmallView()
         {
             InitializeComponent();
@@ -28,5 +30,9 @@ namespace Poznamky2ITB
             pictureBox1.BackColor = DataManager.Instance.ProjectList.First(p => p.Id == data.ProjectId).Color;
         }
 
+        private void PoznamkaSmallView_Click(object sender, EventArgs e)
+        {
+            PoznamkaSelected?.Invoke(this);
+        }
     }
 }

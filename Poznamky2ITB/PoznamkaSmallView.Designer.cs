@@ -43,6 +43,7 @@
             label1.Size = new Size(211, 32);
             label1.TabIndex = 0;
             label1.Text = "[Název poznámky]";
+            label1.Click += PoznamkaSmallView_Click;
             // 
             // pictureBox1
             // 
@@ -51,6 +52,7 @@
             pictureBox1.Size = new Size(41, 41);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += PoznamkaSmallView_Click;
             // 
             // label2
             // 
@@ -62,6 +64,7 @@
             label2.Size = new Size(150, 28);
             label2.TabIndex = 2;
             label2.Text = "[Datum splnění]";
+            label2.Click += PoznamkaSmallView_Click;
             // 
             // PoznamkaSmallView
             // 
@@ -72,6 +75,7 @@
             Controls.Add(label1);
             Name = "PoznamkaSmallView";
             Size = new Size(350, 96);
+            Click += PoznamkaSmallView_Click;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
