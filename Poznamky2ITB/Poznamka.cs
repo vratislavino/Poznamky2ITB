@@ -17,5 +17,7 @@ namespace Poznamky2ITB
         public int ProjectId { get; set; }
 
         public List<string> Subtasks { get; set; }
+
+        public bool IsDone { get; set; }
     }
 }

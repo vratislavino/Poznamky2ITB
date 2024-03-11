@@ -17,6 +17,19 @@ namespace Poznamky2ITB
         public MainForm()
         {
             InitializeComponent();
+            poznamkaView1.PoznamkaDeleted += () =>
+            {
+                CreatePoznamkasViews();
+                poznamkaView1.Hide();
+            };
+
+            poznamkaView1.TaskDone += () =>
+            {
+                selectedPoznamka.SetDone();
+            };
+
+
+            poznamkaView1.Hide();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -55,6 +68,8 @@ namespace Poznamky2ITB
             selectedPoznamka = view;
             poznamkaView1.SetPoznamka(view.Data);
             view.BackColor = Color.LightBlue;
+
+            poznamkaView1.Show();
         }
 
         private void FillFilter()

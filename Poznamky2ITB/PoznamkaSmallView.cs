@@ -28,11 +28,18 @@ namespace Poznamky2ITB
             label1.Text = data.Headline;
             label2.Text = data.DueDate.ToString();
             pictureBox1.BackColor = DataManager.Instance.ProjectList.First(p => p.Id == data.ProjectId).Color;
+            if (data.IsDone) SetDone();
         }
 
         private void PoznamkaSmallView_Click(object sender, EventArgs e)
         {
             PoznamkaSelected?.Invoke(this);
+        }
+
+        public void SetDone()
+        {
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Strikeout, GraphicsUnit.Point);
+
         }
     }
 }
