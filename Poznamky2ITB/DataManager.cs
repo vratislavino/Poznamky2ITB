@@ -13,7 +13,7 @@ namespace Poznamky2ITB
 
         public static DataManager Instance => instance;
 
-        private DataManager() { }
+        public DataManager() { }
 
         // ------------------- above are singleton stuff
 
@@ -30,9 +30,9 @@ namespace Poznamky2ITB
             get { return Poznamkas; }
         }
 
-        private List<Project> Projects = new List<Project>();
+        protected List<Project> Projects = new List<Project>();
 
-        private List<Poznamka> Poznamkas = new List<Poznamka>();
+        protected List<Poznamka> Poznamkas = new List<Poznamka>();
 
         public int GetRandomProjectId()
         {
@@ -68,13 +68,13 @@ namespace Poznamky2ITB
             SavePoznamkas();
         }
 
-        public void SavePoznamkas()
+        public virtual void SavePoznamkas()
         {
             string dataToSave = JsonConvert.SerializeObject(Poznamkas);
             File.WriteAllText(pathToPoznamkas, dataToSave);
         }
 
-        public void LoadPoznamkas()
+        public virtual void LoadPoznamkas()
         {
             if(!File.Exists(pathToPoznamkas))
             {
@@ -91,13 +91,13 @@ namespace Poznamky2ITB
             }
         }
 
-        public void SaveProjects()
+        public virtual void SaveProjects()
         {
             string dataToSave = JsonConvert.SerializeObject(Projects);
             File.WriteAllText(pathToProjects, dataToSave);
         }
 
-        public void LoadProjects()
+        public virtual void LoadProjects()
         {
             if(!File.Exists(pathToProjects))
             {

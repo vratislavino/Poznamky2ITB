@@ -61,7 +61,7 @@ namespace Poznamky2ITB
 
         private void OnPoznamkaSelected(PoznamkaSmallView view)
         {
-            if(selectedPoznamka != null)
+            if (selectedPoznamka != null)
             {
                 selectedPoznamka.BackColor = SystemColors.Control;
             }
@@ -102,22 +102,28 @@ namespace Poznamky2ITB
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var item = comboBox1.SelectedItem;
-            if(item != null)
+            if (item != null)
             {
                 var selectedProject = item as Project;
                 var id = selectedProject.Id;
-                foreach(var control in flowLayoutPanel1.Controls)
+                foreach (var control in flowLayoutPanel1.Controls)
                 {
                     var smallView = control as PoznamkaSmallView;
-                    if(smallView.Data.ProjectId == id)
+                    if (smallView.Data.ProjectId == id)
                     {
                         smallView.Visible = true;
-                    } else
+                    }
+                    else
                     {
                         smallView.Visible = false;
                     }
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            WebDataManager.Instance.DownloadProjects();
         }
     }
 }

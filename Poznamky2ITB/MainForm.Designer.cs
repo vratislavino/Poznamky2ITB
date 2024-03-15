@@ -37,6 +37,7 @@
             label1 = new Label();
             comboBox1 = new ComboBox();
             poznamkaView1 = new PoznamkaView();
+            button1 = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -96,6 +97,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(comboBox1);
             panel1.Location = new Point(3, 3);
@@ -128,6 +130,16 @@
             poznamkaView1.Name = "poznamkaView1";
             poznamkaView1.Size = new Size(750, 773);
             poznamkaView1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(226, 84);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 34);
+            button1.TabIndex = 2;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // MainForm
             // 
@@ -163,5 +175,6 @@
         private ComboBox comboBox1;
         private ToolStripMenuItem projektManagerToolStripMenuItem;
         private ToolStripMenuItem přidatPoznámkuToolStripMenuItem;
+        private Button button1;
     }
 }
