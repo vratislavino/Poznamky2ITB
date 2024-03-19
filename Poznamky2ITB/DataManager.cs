@@ -13,7 +13,7 @@ namespace Poznamky2ITB
 
         public static DataManager Instance => instance;
 
-        public DataManager() { }
+        private DataManager() { }
 
         // ------------------- above are singleton stuff
 
@@ -46,12 +46,12 @@ namespace Poznamky2ITB
             return id;
         }
 
-        public void AddProject(Project newProject) {
+        public virtual void AddProject(Project newProject) {
             Projects.Add(newProject);
             SaveProjects();
         }
 
-        public void RemoveProject(Project projectToRemove) {
+        public virtual void RemoveProject(Project projectToRemove) {
             Projects.Remove(projectToRemove);
             SaveProjects();
         }

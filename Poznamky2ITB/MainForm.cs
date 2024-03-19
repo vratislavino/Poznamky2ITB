@@ -121,9 +121,11 @@ namespace Poznamky2ITB
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click_1(object sender, EventArgs e)
         {
-            WebDataManager.Instance.DownloadProjects();
+            await WebDataManager.Instance.AddProject(new Project() { Name = "Testovací projekt" });
+        
+            //
         }
     }
 }

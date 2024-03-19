@@ -4,17 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
-using static System.Windows.Forms.DataFormats;
 
 namespace Poznamky2ITB
 {
-    public class WebDataManager : DataManager
+    public class WebDataManager
     {
+        private static Lazy<WebDataManager> instance = new Lazy<WebDataManager>(() => new WebDataManager());
 
-        public WebDataManager() {
-            
+        public static WebDataManager Instance => instance.Value;
+
+        private HttpClient httpClient;
+
+        public WebDataManager()
+        {
+            httpClient = new HttpClient();
+            httpClient.BaseAddress = new Uri("http://oddtgames.cz/vyuka/pva/todo/");
         }
-        
+
+        public async Task<bool> AddProject(Project newProject)
+        {
+            HttpResponseMessage response = await httpClient.PostAsync(
+                new Uri(httpClient.BaseAddress, "add_project.php"), // URI
+                new FormUrlEncodedContent(new Dictionary<string, string>() { })
+                );
+            response.EnsureSuccessStatusCode();
+
+            MessageBox.Show(await response.Content.ReadAsStringAsync());
+
+
+            return true;
+        }
 
         /*
         private static WebDataManager instance = new WebDataManager();

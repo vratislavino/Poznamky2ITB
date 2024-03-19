@@ -133,13 +133,13 @@
             // 
             // button1
             // 
-            button1.Location = new Point(226, 84);
+            button1.Location = new Point(95, 84);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 2;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += button1_Click_1;
             // 
             // MainForm
             // 
