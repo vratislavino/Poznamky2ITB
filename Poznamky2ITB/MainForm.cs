@@ -32,12 +32,14 @@ namespace Poznamky2ITB
             poznamkaView1.Hide();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
-            DataManager.Instance.LoadProjects();
+            await WebDataManager.Instance.InitAllProjects();
+            await WebDataManager.Instance.InitAllNotes();
+            //DataManager.Instance.LoadProjects();
             FillFilter();
 
-            DataManager.Instance.LoadPoznamkas();
+            //DataManager.Instance.LoadPoznamkas();
             CreatePoznamkasViews();
         }
 
@@ -45,7 +47,7 @@ namespace Poznamky2ITB
         {
             flowLayoutPanel1.Controls.Clear();
 
-            foreach (var poznamka in DataManager.Instance.PoznamkaList)
+            foreach (var poznamka in WebDataManager.Instance.PoznamkaList)
             {
                 CreatePoznamkaView(poznamka);
             }
@@ -75,7 +77,7 @@ namespace Poznamky2ITB
         private void FillFilter()
         {
             comboBox1.Items.Clear();
-            foreach (var project in DataManager.Instance.ProjectList)
+            foreach (var project in WebDataManager.Instance.ProjectList)
             {
                 comboBox1.Items.Add(project);
             }
@@ -123,9 +125,14 @@ namespace Poznamky2ITB
 
         private async void button1_Click_1(object sender, EventArgs e)
         {
-            await WebDataManager.Instance.AddProject(new Project() { Name = "Testovací projekt" });
-        
-            //
+            bool res = await WebDataManager.Instance.AddProject(new Project() { Name = "Testovací projekt" });
+            if(res)
+            {
+                // 
+            } else
+            {
+                MessageBox.Show("Nepodařilo se přidat projekt!");
+            }
         }
     }
 }

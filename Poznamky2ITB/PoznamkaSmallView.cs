@@ -27,8 +27,13 @@ namespace Poznamky2ITB
             data = poznamka;
             label1.Text = data.Headline;
             label2.Text = data.DueDate.ToString();
-            pictureBox1.BackColor = DataManager.Instance.ProjectList.First(p => p.Id == data.ProjectId).Color;
-            if (data.IsDone) SetDone();
+            var project = WebDataManager.Instance.ProjectList.FirstOrDefault(p => p.Id == data.ProjectId);
+            if(project != null )
+            {
+                pictureBox1.BackColor = project.Color.ToColor();
+            }
+            
+            if (data.IsDone=="0") SetDone();
         }
 
         private void PoznamkaSmallView_Click(object sender, EventArgs e)

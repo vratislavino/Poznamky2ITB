@@ -20,7 +20,7 @@ namespace Poznamky2ITB
             {
                 project = value;
                 
-                pictureBox1.BackColor = project.Color;
+                pictureBox1.BackColor = project.Color.ToColor();
                 label1.Text = project.Name;
             }
         }

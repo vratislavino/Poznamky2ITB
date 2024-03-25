@@ -19,7 +19,7 @@ namespace Poznamky2ITB
 
         private void AddPoznamkaForm_Load(object sender, EventArgs e)
         {
-            foreach (var project in DataManager.Instance.ProjectList)
+            foreach (var project in WebDataManager.Instance.ProjectList)
             {
                 comboBox1.Items.Add(project);
             }
@@ -37,7 +37,7 @@ namespace Poznamky2ITB
             Close();
         }
 
-        private void button3_Click(object sender, EventArgs e) // uložit
+        private async void button3_Click(object sender, EventArgs e) // uložit
         {
             Poznamka newPoznamka = new Poznamka();
             newPoznamka.Headline = textBox1.Text;
@@ -60,9 +60,14 @@ namespace Poznamky2ITB
 
             newPoznamka.Subtasks = subtasks;
 
-            DataManager.Instance.AddPoznamka(newPoznamka);
-
-            this.Close();
+            bool done = await WebDataManager.Instance.AddPoznamka(newPoznamka);
+            if(done)
+            {
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Nepodařilo se přidat poznámku...");
+            }
         }
 
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)

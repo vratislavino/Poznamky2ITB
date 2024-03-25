@@ -33,7 +33,7 @@ namespace Poznamky2ITB
                 checkedListBox1.Items.Add(task);
             }
             var project = DataManager.Instance.ProjectList.First(p => p.Id == data.ProjectId);
-            pictureBox1.BackColor = project.Color;
+            pictureBox1.BackColor = project.Color.ToColor();
             label5.Text = project.Name;
         }
 
@@ -53,7 +53,7 @@ namespace Poznamky2ITB
 
         private void MakeTaskDone()
         {
-            poznamka.IsDone = true;
+            poznamka.IsDone = "1";
             DataManager.Instance.SavePoznamkas();
             TaskDone?.Invoke();
         }

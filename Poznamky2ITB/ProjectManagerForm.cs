@@ -19,9 +19,9 @@ namespace Poznamky2ITB
 
         private void ProjectManagerForm_Load(object sender, EventArgs e)
         {
-            for(int i = 0; i < DataManager.Instance.ProjectList.Count; i++)
+            for(int i = 0; i < WebDataManager.Instance.ProjectList.Count; i++)
             {
-                CreateProjectView(DataManager.Instance.ProjectList[i]);
+                CreateProjectView(WebDataManager.Instance.ProjectList[i]);
             }
         }
 
@@ -34,20 +34,25 @@ namespace Poznamky2ITB
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBox1.Text))
                 return;
 
             Project newProject = new Project()
             {
-                Color = button1.BackColor,
-                Name = textBox1.Text,
-                Id = DataManager.Instance.GetRandomProjectId()
+                Color = button1.BackColor.ToHex(),
+                Name = textBox1.Text
             };
 
-            DataManager.Instance.AddProject(newProject);
-            CreateProjectView(newProject);
+            bool done = await WebDataManager.Instance.AddProject(newProject);
+            if(done)
+            {
+                CreateProjectView(newProject);
+            } else
+            {
+                MessageBox.Show("Nepodařilo se přidat projekt!");
+            }
         }
 
         private void CreateProjectView(Project newProject)

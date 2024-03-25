@@ -18,6 +18,6 @@ namespace Poznamky2ITB
 
         public List<string> Subtasks { get; set; }
 
-        public bool IsDone { get; set; }
+        public string IsDone { get; set; }
     }
 }
